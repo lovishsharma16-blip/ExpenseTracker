@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+        <?import javafx.geometry.Insets?>
+        <?import javafx.scene.chart.*?>
+        <?import javafx.scene.control.*?>
+        <?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.expensetrackergui.ExpenseController"
+            prefWidth="1800"
+            prefHeight="1000"
+            stylesheets="@style.css">
+
+    <!-- ================= TITLE ================= -->
+
+    <top>
+        <Label text="EXPENSE TRACKER SYSTEM"
+               styleClass="title-label"
+               BorderPane.alignment="CENTER">
+
+            <BorderPane.margin>
+                <Insets top="25" bottom="25"/>
+            </BorderPane.margin>
+
+        </Label>
+    </top>
+
+    <!-- ================= LEFT INPUT PANEL ================= -->
+
+    <left>
+
+        <VBox spacing="15"
+              prefWidth="280">
+
+            <padding>
+                <Insets top="25" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <Label text="Expense ID"/>
+            <TextField fx:id="idField"
+                       promptText="Enter Expense ID"
+                       prefWidth="240"
+                       prefHeight="35"/>
+
+            <Label text="Title"/>
+            <TextField fx:id="titleField"
+                       promptText="Enter Title"
+                       prefHeight="35"/>
+
+            <Label text="Amount"/>
+            <TextField fx:id="amountField"
+                       promptText="Enter Amount"
+                       prefHeight="35"/>
+
+            <Label text="Category"/>
+            <TextField fx:id="categoryField"
+                       promptText="Enter Category"
+                       prefHeight="35"/>
+
+            <Label text="Date"/>
+            <DatePicker fx:id="datePicker"
+                        prefHeight="35"/>
+
+            <Button text="Add Expense"
+                    onAction="#addExpense"
+                    prefWidth="240"
+                    prefHeight="40"
+                    styleClass="add-button"/>
+
+            <Button text="Delete Expense"
+                    onAction="#deleteExpense"
+                    prefWidth="240"
+                    prefHeight="40"
+                    styleClass="delete-button"/>
+
+            <Separator/>
+
+            <Label text="Search Expense ID"/>
+
+            <TextField fx:id="searchField"
+                       promptText="Enter Expense ID"
+                       prefHeight="35"/>
+
+            <Button text="Search Expense"
+                    onAction="#searchExpense"
+                    prefWidth="240"
+                    prefHeight="40"
+                    styleClass="search-button"/>
+
+        </VBox>
+
+    </left>
+
+    <!-- ================= CENTER TABLE ================= -->
+
+    <center>
+
+        <VBox spacing="10">
+
+            <padding>
+                <Insets top="15" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <TableView fx:id="expenseTable"
+                       prefWidth="1050"
+                       prefHeight="820"
+                       VBox.vgrow="ALWAYS">
+
+                <columns>
+
+                    <TableColumn text="ID"
+                                 fx:id="idColumn"
+                                 prefWidth="90"/>
+
+                    <TableColumn text="Title"
+                                 fx:id="titleColumn"
+                                 prefWidth="220"/>
+
+                    <TableColumn text="Amount"
+                                 fx:id="amountColumn"
+                                 prefWidth="170"/>
+
+                    <TableColumn text="Category"
+                                 fx:id="categoryColumn"
+                                 prefWidth="220"/>
+
+                    <TableColumn text="Date"
+                                 fx:id="dateColumn"
+                                 prefWidth="180"/>
+
+                </columns>
+
+            </TableView>
+
+        </VBox>
+
+    </center>
+
+    <!-- ================= CHARTS PANEL ================= -->
+
+    <right>
+
+        <VBox spacing="20"
+              prefWidth="450">
+
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
+
+            <PieChart fx:id="pieChart"
+                      title="Expenses by Category"
+                      prefWidth="420"
+                      prefHeight="280"/>
+
+            <BarChart fx:id="barChart"
+                      title="Category Wise Expense"
+                      prefWidth="420"
+                      prefHeight="260">
+
+                <xAxis>
+                    <CategoryAxis label="Category"/>
+                </xAxis>
+
+                <yAxis>
+                    <NumberAxis label="Amount (₹)"/>
+                </yAxis>
+
+            </BarChart>
+
+            <LineChart fx:id="lineChart"
+                       title="Expense Trend"
+                       prefWidth="420"
+                       prefHeight="260">
+
+                <xAxis>
+                    <CategoryAxis label="Date"/>
+                </xAxis>
+
+                <yAxis>
+                    <NumberAxis label="Amount (₹)"/>
+                </yAxis>
+
+            </LineChart>
+
+        </VBox>
+
+    </right>
+
+    <!-- ================= TOTAL LABEL ================= -->
+
+    <bottom>
+
+        <Label text="Total Expense : ₹0"
+               fx:id="totalLabel"
+               styleClass="total-label"
+               BorderPane.alignment="CENTER">
+
+            <BorderPane.margin>
+                <Insets top="10" bottom="15"/>
+            </BorderPane.margin>
+
+        </Label>
+
+    </bottom>
+
+</BorderPane>
