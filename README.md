@@ -101,19 +101,9 @@ mvnw.cmd javafx:run
 
 ---
 
-## 📸 Screenshots
 
-### Dashboard
-- Expense entry panel
-- Expense records table
-- Total expense calculation
 
-### Analytics
-- Pie Chart for category distribution
-- Bar Chart for category comparison
-- Line Chart for expense trends
 
----
 
 ## 📚 Concepts Used
 
